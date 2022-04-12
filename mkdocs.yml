@@ -1,0 +1,7 @@
+site_name: LabLift Python
+site_description: Documentação de uso do cliente Python da LabLift
+theme:
+  name: material
+nav:
+  - index.md
+  - BioFeatureAI: biofeatureai/index.md
