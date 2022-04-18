@@ -1,3 +1,5 @@
+from __future__ import annotations
+from multiprocessing import Pool
 from .client import Client
 from .config import api_urls
 from typing import Union
@@ -13,3 +15,12 @@ class Biofeature:
         if not response.status_code == 201:
             raise Exception(f"[Error] Prediction failed. {response.content}")
         return response.json()
+
+    def multiple_call(self, items: list[dict[str, str]]) -> list[dict]:
+        for item in items:
+            if not "img" in item:
+                raise Exception(f"[Error] Missing img key on dict {item}.")
+        with Pool() as pool:
+            response = pool.starmap(self.call, [(
+                item["img"], item["cpf"] if "cpf" in item else None) for item in items])
+        return response
