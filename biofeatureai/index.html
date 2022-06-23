@@ -1,0 +1,599 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentação de uso do cliente Python da LabLift">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.7">
+    
+    
+      
+        <title>BioFeatureAI - LabLift Python</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4a0965b7.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#biofeatureai" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="LabLift Python" class="md-header__button md-logo" aria-label="LabLift Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LabLift Python
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              BioFeatureAI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="LabLift Python" class="md-nav__button md-logo" aria-label="LabLift Python" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    LabLift Python
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Introdução
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          BioFeatureAI
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        BioFeatureAI
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#autenticacao" class="md-nav__link">
+    Autenticação
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requisicao" class="md-nav__link">
+    Requisição
+  </a>
+  
+    <nav class="md-nav" aria-label="Requisição">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requisicao-utilizando-imagem-coletada-internamente" class="md-nav__link">
+    Requisição utilizando imagem coletada internamente
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gerar-links-para-coleta-de-imagem-na-plataforma-da-lablift" class="md-nav__link">
+    Gerar links para coleta de imagem na plataforma da LabLift
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultado" class="md-nav__link">
+    Resultado
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mensagens-de-erro" class="md-nav__link">
+    Mensagens de erro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-rest" class="md-nav__link">
+    Api REST
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#autenticacao" class="md-nav__link">
+    Autenticação
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requisicao" class="md-nav__link">
+    Requisição
+  </a>
+  
+    <nav class="md-nav" aria-label="Requisição">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requisicao-utilizando-imagem-coletada-internamente" class="md-nav__link">
+    Requisição utilizando imagem coletada internamente
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gerar-links-para-coleta-de-imagem-na-plataforma-da-lablift" class="md-nav__link">
+    Gerar links para coleta de imagem na plataforma da LabLift
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultado" class="md-nav__link">
+    Resultado
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mensagens-de-erro" class="md-nav__link">
+    Mensagens de erro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-rest" class="md-nav__link">
+    Api REST
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="biofeatureai">BioFeatureAI</h1>
+<p>O LabLift BioFeature AI é uma solução de inteligência artificial que extrai fatores de risco de saúde a partir de foto de rosto. Com esta solução, nossos clientes conseguem ser mais eficientes na gestão preventiva de saúde. </p>
+<p>A interface Python do BioFeature AI provê padronização para integração com outros sistemas, aumentando a produtividade e reduzindo <em>bugs</em> durante a implantação e manutenção do produto. </p>
+<h2 id="autenticacao">Autenticação</h2>
+<p>Para se autenticar e ter acesso aos nossos produtos é necessário gerar um <strong><em>token</em></strong> de acesso. Trata-se de uma <em>string</em> com validade limitada, obtida fornecendo seus dados de cadastro (usuário e senha). Caso você não possua um cadastro, contate o administrador da conta LabLift da sua empresa. </p>
+<p>A função generate_token é responsável por gerar os <strong><em>tokens</em></strong> diretamente no cliente. Ela pode receber como argumentos seu usuário e senha (parâmetros em formato <em>string</em> <strong><em>username</em></strong> e <strong><em>password</em></strong>), caso contrário eles serão solicitados na execução. O exemplo abaixo mostra como utilizar a função.</p>
+<script src="https://emgithub.com/embed.js?target=https://github.com/lablift/client-python/blob/main/examples/create_token.py&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
+
+<h2 id="requisicao">Requisição</h2>
+<h3 id="requisicao-utilizando-imagem-coletada-internamente">Requisição utilizando imagem coletada internamente</h3>
+<p>Com o <strong><em>token</em></strong> em mãos, é possível instanciar tanto o cliente quanto o próprio Biofeature e utilizar o método <strong><em>call</em></strong>, que recebe o argumento <strong><code>img</code></strong> (<em>string</em> obrigatório), que é o <em>path</em> até a imagem que se deseja submeter para predição, e, <strong>opcionalmente</strong>, o argumento <em>string</em> <strong><code>cpf</code></strong>, correspondente ao Cadastro de Pessoa Física, para identificação pessoal. Esse método se comunica com nosso modelo de inteligência artificial e retorna o resultado da predição como <em>dict</em> dentro de alguns segundos.</p>
+<p>Um exemplo de código que realiza autenticação, instancia as classes necessárias e realiza uma chamada síncrona para obter a predição de uma imagem qualquer pode ser encontrado abaixo.</p>
+<script src="https://emgithub.com/embed.js?target=https://github.com/lablift/client-python/blob/main/examples/biofeature.py&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
+
+<p>O resultado mostrado em tela após a execução desse código contém o resultado da predição como um dicionário Python.</p>
+<p>Você também pode <strong>realizar requisições em lote</strong> utilizando o método <strong><code>.multiple_calls()</code></strong>, que recebe como argumento uma lista de dicionários. Cada dicionário nesta lista representa uma única imagem, e precisa conter obrigatoriamente o atributo <strong><code>img</code></strong> (<em>path</em> até a imagem) e opcionalmente o atributo <strong><code>cpf</code></strong>. O código abaixo exemplifica o envio de imagens em lote.</p>
+<script src="https://emgithub.com/embed.js?target=https://github.com/lablift/client-python/blob/main/examples/biofeature_multiplecall.py&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
+
+<h3 id="gerar-links-para-coleta-de-imagem-na-plataforma-da-lablift">Gerar links para coleta de imagem na plataforma da LabLift</h3>
+<p>Caso sua empresa não possua funcionalidade de coleta de foto de rosto nos seus aplicativos, você pode utilizar a plataforma de coleta de imagem da LabLift. Para coletar a imagem de uma pessoa, você gerará um link único e enviará para a pessoa. Ao acessar o link, ela seguirá as intruções de coleta pelo próprio celular. Posteriormente, o resultado da predição ficará disponível para que você consulte.</p>
+<p>Para <strong>gerar um único link</strong>, utilize o método <strong><code>.generate_link()</code></strong>, que recebe o argumento <strong><code>cpf</code></strong> (<em>string</em> obrigatório) e <strong><code>name</code></strong> (<em>string</em> opcional). Um exemplo de uso do método pode ser encontrado abaixo:</p>
+<script src="https://emgithub.com/embed.js?target=https://github.com/lablift/client-python/blob/main/examples/biofeature_create_link.py&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
+
+<p>Para <strong>gerar vários links em lote</strong>, utilize o método <strong><code>.generate_multiple_links()</code></strong>, que recebe como argumento uma lista de dicionários. Cada dicionário representa uma pessoa, precisa conter o atributo <strong><code>cpf</code></strong> (<em>string</em>) e pode opcionalmente receber o atributo <strong><code>name</code></strong> (<em>string</em>). O retorno será uma lista de links. Os links retornados respeitam a ordem de envio ao método <strong><code>.generate_multiple_links()</code></strong>, isto é, o primeiro link corresponde ao primeiro CPF informado, e assim sucessivamente. O código abaixo apresenta um exemplo de implementação de geração de links em lote.</p>
+<script src="https://emgithub.com/embed.js?target=https://github.com/lablift/client-python/blob/main/examples/biofeature_create_links_in_batch.py&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
+
+<h2 id="resultado">Resultado</h2>
+<p>Uma resposta típica do BioFeature AI contém os seguintes campos:</p>
+<ul>
+<li>
+<p><strong><code>age</code></strong>: Idade aparente da pessoa na foto, em anos. Geralmente este valor é próximo à idade cronológica, porém fatores como envelhecimento precoce da pele podem produzir diferenças significativas.</p>
+</li>
+<li>
+<p><strong><code>age_margin_error</code></strong>: Margem de erro da idade inferida.</p>
+</li>
+<li>
+<p><strong><code>bmi</code></strong>: Índice de Massa Corporal inferido, em kg/m². </p>
+</li>
+<li>
+<p><strong><code>bmi_class</code></strong>: Classificação do Índice de Massa Corporal inferido para população ocidental, conforme tabela abaixo:</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Classe IMC</th>
+<th>Faixa de IMC (kg/m²)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>underweight</code></strong></td>
+<td>&lt; 18.5</td>
+</tr>
+<tr>
+<td><strong><code>normal</code></strong></td>
+<td>18.5 &lt;= IMC &lt; 25</td>
+</tr>
+<tr>
+<td><strong><code>overweight</code></strong></td>
+<td>25 &lt;= IMC &lt; 30</td>
+</tr>
+<tr>
+<td><strong><code>obese</code></strong></td>
+<td>&gt;= 30</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><strong><code>cpf</code></strong>: O mesmo valor do campo <strong><code>cpf</code></strong>, caso tenha sido enviado, ou <strong><code>None</code></strong>. Este campo confirma a atribuição do documento à imagem. </p>
+</li>
+<li>
+<p><strong><code>ethnicity</code></strong>: Provável etnia da pessoa na foto. </p>
+</li>
+<li>
+<p><strong><code>ethnicity_probability</code></strong>: Probabilidade atribuída pelo modelo com relação à etnia inferida.</p>
+</li>
+<li>
+<p><strong><code>face</code></strong>: String base64 contendo o rosto detectado na foto.</p>
+</li>
+<li>
+<p><strong><code>gender</code></strong>: Gênero inferido. <strong><code>M</code></strong> para masculino e <strong><code>F</code></strong> para feminino.</p>
+</li>
+<li>
+<p><strong><code>gender_probability</code></strong>: Probabilidade atribuída pelo modelo com relação ao gênero inferido.</p>
+</li>
+<li>
+<p><strong><code>id</code></strong>: Código identificador da imagem na LabLift.</p>
+</li>
+<li>
+<p><strong><code>prevalent_emotion</code></strong>: Emoção prevalente esboçada pelo rosto na foto. Esta informação deriva dos processos de validação da imagem.</p>
+</li>
+<li>
+<p><strong><code>prevalent_emotion_probability</code></strong>: Probabilidade atribuída pelo modelo com relação à emoção inferida.</p>
+</li>
+<li>
+<p><strong><code>responsible</code></strong>: <em>Username</em> que solicitou a avaliação da imagem.</p>
+</li>
+<li>
+<p><strong><code>roll</code></strong>: Rolagem do rosto (uma das medidas de posicionamento avaliadas). Esta informação deriva dos processos de validação da imagem.</p>
+</li>
+<li>
+<p><strong><code>submitted_image_name</code></strong>: Nome do arquivo da imagem salva no servidor da LabLift.</p>
+</li>
+<li>
+<p><strong><code>skin_lesion_score</code></strong>: Score de Manchas Faciais. Quanto maior, pior. Veja o campo <strong><code>skin_lesion_score_interpretation</code></strong> para mais informações.</p>
+</li>
+<li>
+<p><strong><code>skin_lesion_score_interpretation</code></strong>: Classificação de comprometimento da pele por manchas faciais, de acordo com o Score de Manchas Faciais. As classes são, em ordem crescente de comprometimento: <strong><code>low</code></strong>, <strong><code>medium-low</code></strong>, <strong><code>medium-high</code></strong>, <strong><code>high</code></strong>.</p>
+</li>
+<li>
+<p><strong><code>time_taken</code></strong>: Tempo de processamento, em segundos. </p>
+</li>
+<li>
+<p><strong><code>wearing_eyeglasses</code></strong>: Indica se foi detectado o uso de óculos durante a coleta ou análise da foto de rosto.</p>
+</li>
+<li>
+<p><strong><code>wearing_eyeglasses_probability</code></strong>: Probabilidade atribuída pelo modelo com relação ao uso de óculos.</p>
+</li>
+<li>
+<p><strong><code>yaw</code></strong>: Guinada do rosto (uma das medidas de posicionamento avaliadas). Esta informação deriva dos processos de validação da imagem.</p>
+</li>
+</ul>
+<h2 id="mensagens-de-erro">Mensagens de erro</h2>
+<p>Quando o BioFeature AI retorna um <strong><code>status_code</code></strong> diferente de OK, o campo <strong><code>error</code></strong> da resposta frequentemente contém informações mais detalhadas sobre a causa do erro. Geralmente, as causas de erro estão relacionadas à validação da imagem. As imagens enviadas são validadas quanto à sua qualidade e o posicionamento da pessoa antes de serem analisadas pelos modelos. Esta validação busca garantir que as inferências pelos modelos ocorram no maior nível de confiabilidade possível. </p>
+<p>Os principais erros na etapa de validação são:</p>
+<ul>
+<li>
+<p><strong><code>unable to read file as image</code></strong>: O arquivo recebido não é suportado pela solução. Envie imagens JPEG ou PNG.</p>
+</li>
+<li>
+<p><strong><code>unable to detect frontal face on image</code></strong>: Este erro indica que a solução não conseguiu localizar um rosto completo na imagem. Possíveis causas para isso incluem: não há um rosto na foto; a proporção entre o rosto da pessoa e o tamanho da foto é muito pequena; rosto parcialmente oculto; baixa qualidade da imagem.</p>
+</li>
+<li>
+<p><strong><code>unacceptable pose</code></strong>: Este erro ocorre quando é detectada inclinação do rosto acima da tolerância da solução, ou quando a pessoa aparenta emoção prevalente não-neutra (ex: a pessoa está sorrindo).</p>
+</li>
+<li>
+<p><strong><code>unable to apply model to image</code></strong>: Este erro indica que houve uma falha durante a etapa de aplicação dos modelos. Tente enviar a imagem novamente. Caso o erro persista entre em contato com nosso suporte e informe este erro.</p>
+</li>
+<li>
+<p><strong><code>unable to process image</code></strong>: Este erro indica que houve uma falha inesperada durante o pré-processamento da imagem. Tente enviar a imagem novamente. Caso o erro persista entre em contato com nosso suporte e informe este erro.</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Nota:</strong> Imagens não aceitas na etapa de validação não são analisadas pelos modelos, por isso os campos gerados pelos modelos não estarão presentes.</p>
+</blockquote>
+<hr />
+<h2 id="api-rest">Api REST</h2>
+<p>O BiofeatureAI também pode ser utilizado a partir de uma API REST. Você pode acessar a documentação da API REST <a href="https://api.biofeature.lablift.com.br/docs/" target="_blank">clicando aqui</a>.</p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Introdução" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Introdução
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.0238f547.min.js"></script>
+      
+    
+  </body>
+</html>
