@@ -15,6 +15,8 @@ A função generate_token é responsável por gerar os ***tokens*** diretamente 
 
 ## Requisição
 
+### Requisição utilizando imagem coletada internamente
+
 Com o ***token*** em mãos, é possível instanciar tanto o cliente quanto o próprio Biofeature e utilizar o método ***call***, que recebe o argumento **`img`** (*string* obrigatório), que é o *path* até a imagem que se deseja submeter para predição, e, **opcionalmente**, o argumento *string* **`cpf`**, correspondente ao Cadastro de Pessoa Física, para identificação pessoal. Esse método se comunica com nosso modelo de inteligência artificial e retorna o resultado da predição como *dict* dentro de alguns segundos.
 
 Um exemplo de código que realiza autenticação, instancia as classes necessárias e realiza uma chamada síncrona para obter a predição de uma imagem qualquer pode ser encontrado abaixo.
@@ -26,6 +28,19 @@ O resultado mostrado em tela após a execução desse código contém o resultad
 Você também pode **realizar requisições em lote** utilizando o método **`.multiple_calls()`**, que recebe como argumento uma lista de dicionários. Cada dicionário nesta lista representa uma única imagem, e precisa conter obrigatoriamente o atributo **`img`** (*path* até a imagem) e opcionalmente o atributo **`cpf`**. O código abaixo exemplifica o envio de imagens em lote.
 
 <script src="https://emgithub.com/embed.js?target=https://github.com/lablift/client-python/blob/main/examples/biofeature_multiplecall.py&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
+
+### Gerar links para coleta de imagem na plataforma da LabLift
+
+Caso sua empresa não possua funcionalidade de coleta de foto de rosto nos seus aplicativos, você pode utilizar a plataforma de coleta de imagem da LabLift. Para coletar a imagem de uma pessoa, você gerará um links único e enviará para a pessoa. Ao acessar o link, ela seguirá as intruções de coleta pelo próprio celular. Posteriormente, o resultado da predição ficará disponível para que você consulte.
+
+Para **gerar um único link**, utilize o método **`.generate_link()`**, que recebe o argumento **`cpf`** (*string* obrigatório) e **`name`** (*string* opctional). Um exemplo de uso do método pode ser encontrado abaixo:
+
+<script src="https://emgithub.com/embed.js?target=https://github.com/lablift/client-python/blob/main/examples/biofeature_create_link.py&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
+
+Para **gerar vários links em lote**, utilize o método **`.generate_multiple_links()`**, que recebe como argumento uma lista de dicionários. Cada dicionário representa uma pessoa, precisa conter o atributo **`cpf`** (*string*) e pode opcionalmente receber o atributo **`name`** (*string*). O retorno será uma lista de links. Cada link está atrelado no nosso sistema ao CPF informado na mesma ordem informada ao método **`.generate_multiple_links()`**. O código abaixo apresenta um exemplo de implementação de geração de links em lote.
+
+<script src="https://emgithub.com/embed.js?target=https://github.com/lablift/client-python/blob/main/examples/biofeature_create_links_in_batch.py&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
+
 
 ## Resultado
 
